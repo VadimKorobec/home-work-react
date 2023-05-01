@@ -11,6 +11,7 @@ import friends from '../data/friends.json';
 import { StatiticsList } from 'components/StatisticsList/StatisticsList';
 import { FriendsList } from 'components/FriendsList/FriendsList';
 import { Counter } from 'components/Counter/Counter';
+import { Toggle } from 'components/Toggle/Toggle';
 
 const favoriteBooks = [
   { id: 'id-1', name: 'JS for beginners', price: 10 },
@@ -22,6 +23,7 @@ const favoriteBooks = [
 export const App = () => {
   return (
     <div>
+      <Toggle />
       <Counter />
       <FriendsList friends={friends} />
       <StatiticsList stats={stats} />
