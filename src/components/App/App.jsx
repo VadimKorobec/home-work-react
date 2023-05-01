@@ -3,6 +3,14 @@ import { Product } from '../Product/Product';
 import { Panel } from 'components/Panel/Panel';
 import { Mailbox } from 'components/Mailbox/Mailbox';
 import { BookList } from 'components/BookList/BookList';
+import { Alert } from 'components/Alert/Alert';
+import { ProfileUser } from 'components/ProfileUser/ProfileUser';
+import user from '../data/user.json';
+import stats from '../data/data.json';
+import friends from '../data/friends.json';
+import { StatiticsList } from 'components/StatisticsList/StatisticsList';
+import { FriendsList } from 'components/FriendsList/FriendsList';
+import { Counter } from 'components/Counter/Counter';
 
 const favoriteBooks = [
   { id: 'id-1', name: 'JS for beginners', price: 10 },
@@ -14,6 +22,18 @@ const favoriteBooks = [
 export const App = () => {
   return (
     <div>
+      <Counter />
+      <FriendsList friends={friends} />
+      <StatiticsList stats={stats} />
+      <ProfileUser user={user} />
+      <Alert variant="info">Please update your email! </Alert>
+      <Alert variant="error">There was an error during transaction </Alert>
+      <Alert variant="success">
+        Payment received,thank you for your purchase!
+      </Alert>
+      <Alert variant="warning">
+        Please update your profile contact information
+      </Alert>
       <h1>Best selling products</h1>
       <Product
         imgUrl="https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?dpr=2&h=480&w=640"
