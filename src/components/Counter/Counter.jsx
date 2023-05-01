@@ -1,18 +1,27 @@
 import React, { Component } from 'react';
+import { Decrement, Increment, Sum } from './Counter.styled';
 
 export class Counter extends Component {
   static defaultProps = {
     step: 1,
+    initialValue: 0,
   };
 
-  handleIncrement = event => {
-    console.log('increment button was clicked ', event);
-    console.log('this.props', this.props);
+  state = {
+    value: this.props.initialValue,
   };
 
-  handleDecrement = event => {
-    console.log('Decrement dutton was clicked', event);
-    console.log('this.props', this.props);
+  handleIncrement = () => {
+    this.setState((state, props) => ({
+      value: state.value + props.step,
+    }));
+    console.log(this.setState({ value: +this.props.step }));
+  };
+
+  handleDecrement = () => {
+    this.setState((state, props) => ({
+      value: state.value + props.step,
+    }));
   };
 
   render() {
@@ -20,13 +29,13 @@ export class Counter extends Component {
 
     return (
       <div>
-        <button type="button" onClick={this.handleIncrement}>
+        <Increment type="button" onClick={this.handleIncrement}>
           Increment by{step}
-        </button>
-        <span>0</span>
-        <button type="button" onClick={this.handleDecrement}>
+        </Increment>
+        <Sum>0</Sum>
+        <Decrement type="button" onClick={this.handleDecrement}>
           Decrement by{step}
-        </button>
+        </Decrement>
       </div>
     );
   }
