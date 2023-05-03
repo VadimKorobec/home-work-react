@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { Decrement, Increment, Sum } from './Counter.styled';
+import { Sum } from './Counter.styled';
+import { Controls } from './Controls';
+import { Value } from './Value';
 
 export class Counter extends Component {
   static defaultProps = {
-    step: 1,
     initialValue: 0,
   };
 
@@ -12,30 +13,25 @@ export class Counter extends Component {
   };
 
   handleIncrement = () => {
-    this.setState((state, props) => ({
-      value: state.value + props.step,
+    this.setState(prevState => ({
+      value: prevState.value + 1,
     }));
-    console.log(this.setState({ value: +this.props.step }));
   };
 
   handleDecrement = () => {
-    this.setState((state, props) => ({
-      value: state.value + props.step,
+    this.setState(prevState => ({
+      value: prevState.value - 1,
     }));
   };
 
   render() {
-    const { step } = this.props;
-
     return (
       <div>
-        <Increment type="button" onClick={this.handleIncrement}>
-          Increment by{step}
-        </Increment>
-        <Sum>0</Sum>
-        <Decrement type="button" onClick={this.handleDecrement}>
-          Decrement by{step}
-        </Decrement>
+        <Value value={this.state.value} />
+        <Controls
+          onIcrement={this.handleIncrement}
+          onDecrement={this.handleDecrement}
+        />
       </div>
     );
   }
