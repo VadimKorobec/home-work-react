@@ -17,6 +17,11 @@ export class Form extends Component {
   handleSubmit = event => {
     event.preventDefault();
     this.props.onSubmit(this.state);
+    this.reset();
+  };
+
+  reset = () => {
+    this.setState({ name: '', email: '' });
   };
 
   //   handleNameChange = event => {
