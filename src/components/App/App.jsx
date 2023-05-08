@@ -17,6 +17,9 @@ import { Dropdown } from 'components/Dropdown/Dropdown';
 import { ColorPicker } from 'components/ColorPicker/ColorPicker';
 import { TodoList } from 'components/TodoList/TodoList';
 import { Component } from 'react';
+import { LoginForm } from 'components/LoginForm/LoginForm';
+import { SignUpForm } from 'components/SignUpForm/SignUpForm';
+import { Form } from 'components/Form/Form';
 
 const favoriteBooks = [
   { id: 'id-1', name: 'JS for beginners', price: 10 },
@@ -44,11 +47,18 @@ export class App extends Component {
     }));
   };
 
+  formSubmitHandler = data => {
+    console.log(data);
+  };
+
   render() {
     const { todos } = this.state;
 
     return (
       <div>
+        <Form onSubmit={this.formSubmitHandler} />
+        <SignUpForm />
+        <LoginForm />
         <div>
           <p>Todo:{todos.length}</p>
           <p>Todo:</p>
