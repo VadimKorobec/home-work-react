@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Sum } from './Counter.styled';
 import { Controls } from './Controls';
 import { Value } from './Value';
 
