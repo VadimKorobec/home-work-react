@@ -20,6 +20,7 @@ import { Component } from 'react';
 import { LoginForm } from 'components/LoginForm/LoginForm';
 import { SignUpForm } from 'components/SignUpForm/SignUpForm';
 import { Form } from 'components/Form/Form';
+import { ContactForm } from 'components/ContactForm/ContactForm';
 
 const favoriteBooks = [
   { id: 'id-1', name: 'JS for beginners', price: 10 },
@@ -56,6 +57,7 @@ export class App extends Component {
 
     return (
       <div>
+        <ContactForm />
         <Form onSubmit={this.formSubmitHandler} />
         <SignUpForm />
         <LoginForm />
